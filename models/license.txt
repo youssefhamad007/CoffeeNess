@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sanremo Opera Coffee Machines
+* source:	https://sketchfab.com/3d-models/sanremo-opera-coffee-machines-3e4d9ec6f9a946eab6870c1f1e15094f
+* author:	MozzarellaARC (https://sketchfab.com/mozzarellaARC)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sanremo Opera Coffee Machines" (https://sketchfab.com/3d-models/sanremo-opera-coffee-machines-3e4d9ec6f9a946eab6870c1f1e15094f) by MozzarellaARC (https://sketchfab.com/mozzarellaARC) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
