@@ -143,7 +143,7 @@ const Home: React.FC = () => {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          src="/assets/about.mp4"
+          src="/about.mp4"
           muted
           playsInline
         />

@@ -9,7 +9,7 @@ interface CupModelProps {
 
 const CupModel: React.FC<CupModelProps> = ({ isHovered }) => {
   const meshRef = useRef<THREE.Group>(null!);
-  const { scene } = useGLTF('/models/scene.gltf');
+  const { scene } = useGLTF('/scene.gltf');
   const clonedScene = useMemo(() => scene.clone(true), [scene]);
   const [baseScale, setBaseScale] = useState(1);
 
