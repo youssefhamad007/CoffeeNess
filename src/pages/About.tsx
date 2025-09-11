@@ -132,7 +132,7 @@ const About: React.FC = () => {
                   playsInline
                   preload="metadata"
                 >
-                  <source src="/assets/about.mp4" type="video/mp4" />
+                  <source src="about.mp4" type="video/mp4" />
                 </video>
               </div>
             </div>

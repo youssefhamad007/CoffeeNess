@@ -21,10 +21,10 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { to: '/CoffeeNess', label: 'Home' },
-    { to: '/shop', label: 'Shop' },
-    { to: '/about', label: 'About' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/CoffeeNess/', label: 'Home' },
+    { to: '/CoffeeNess/shop', label: 'Shop' },
+    { to: '/CoffeeNess/about', label: 'About' },
+    { to: '/CoffeeNess/contact', label: 'Contact' },
   ];
 
   return (
