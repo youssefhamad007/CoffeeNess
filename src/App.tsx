@@ -23,7 +23,7 @@ const App = () => (
         <Sonner />
         <Navigation />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/CoffeeNess" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />

@@ -21,7 +21,7 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { to: '/', label: 'Home' },
+    { to: '/CoffeeNess', label: 'Home' },
     { to: '/shop', label: 'Shop' },
     { to: '/about', label: 'About' },
     { to: '/contact', label: 'Contact' },
