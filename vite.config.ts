@@ -9,7 +9,7 @@ export default defineConfig({
     port: 8080,
   },
   plugins: [react()],
-  base:"/",   // 👈 no lovable-tagger
+  base:"/CoffeeNess",   // 👈 no lovable-tagger
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
