@@ -50,29 +50,123 @@ const CupModel: React.FC<CupModelProps> = ({ isHovered }) => {
 
 const CoffeeCup3D: React.FC = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [isInteracting, setIsInteracting] = useState(false);
+  const [showTooltip, setShowTooltip] = useState(true);
+
+  const handleInteractionStart = () => {
+    setIsInteracting(true);
+    setShowTooltip(false);
+  };
+
+  const handleInteractionEnd = () => {
+    setIsInteracting(false);
+    setTimeout(() => setShowTooltip(true), 2000);
+  };
 
   return (
-    <div 
-      className="w-full h-64 md:h-[32rem] cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <Canvas camera={{ position: [0, 2.8, 6], fov: 40 }}>
-        <ambientLight intensity={0.4} />
-        <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
-        <pointLight position={[-5, 5, 5]} intensity={0.5} />
-        
-        <CupModel isHovered={isHovered} />
-        
-        <Environment preset="studio" />
-        <OrbitControls 
-          enablePan={false}
-          enableZoom={false}
-          target={[0, 0, 0]}
-          autoRotate
-          autoRotateSpeed={0.2}
-        />
-      </Canvas>
+    <div className="w-full h-64 md:h-[32rem] relative">
+      {/* Simple Tooltip */}
+      {showTooltip && !isHovered && !isInteracting && (
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 floating-tooltip">
+          <div className="bg-black/20 backdrop-blur-sm text-white px-4 py-2 rounded-lg flex items-center space-x-2 border border-white/20">
+            <span className="loader"></span>
+            <span>Move me around!</span>
+          </div>
+        </div>
+      )}
+
+      <div 
+        className="w-full h-full cursor-pointer"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onMouseDown={handleInteractionStart}
+        onMouseUp={handleInteractionEnd}
+      >
+        <Canvas camera={{ position: [0, 2.8, 6], fov: 40 }}>
+          <ambientLight intensity={0.4} />
+          <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
+          <pointLight position={[-5, 5, 5]} intensity={0.5} />
+          
+          <CupModel isHovered={isHovered} />
+          
+          <Environment preset="studio" />
+          <OrbitControls 
+            enablePan={false}
+            enableZoom={false}
+            target={[0, 0, 0]}
+            autoRotate
+            autoRotateSpeed={0.2}
+            onStart={handleInteractionStart}
+            onEnd={handleInteractionEnd}
+          />
+        </Canvas>
+      </div>
+
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .loader {
+            width: 48px;
+            height: 48px;
+            border: 2px solid #FFF;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            box-sizing: border-box;
+            animation: rotation_35 4s linear infinite;
+          }
+
+          .loader::after,
+          .loader::before {
+            content: '';
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: greenyellow;
+            width: 6px;
+            height: 6px;
+            transform: translate(150%, 150%);
+            border-radius: 50%;
+          }
+
+          .loader::before {
+            left: auto;
+            top: auto;
+            right: 0;
+            bottom: 0;
+            transform: translate(-150%, -150%);
+          }
+
+          .floating-tooltip {
+            animation: float-sine 2s ease-in-out infinite;
+          }
+
+          @keyframes rotation_35 {
+            0% {
+              transform: rotate(0deg);
+            }
+
+            100% {
+              transform: rotate(360deg);
+            }
+          }
+
+          @keyframes float-sine {
+            0%, 100% {
+              transform: translate(-50%, 0px);
+            }
+            25% {
+              transform: translate(-50%, -4px);
+            }
+            50% {
+              transform: translate(-50%, 0px);
+            }
+            75% {
+              transform: translate(-50%, 4px);
+            }
+          }
+        `
+      }} />
     </div>
   );
 };
