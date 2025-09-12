@@ -35,7 +35,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link 
-            to="/" 
+            to="/CoffeeNess/" 
             className="text-2xl font-bold text-coffee-dark transition-colors hover:text-accent"
           >
             CoffeeNess
@@ -61,7 +61,7 @@ const Navigation = () => {
 
           {/* Cart & Mobile Menu */}
           <div className="flex items-center space-x-4">
-            <Link to="/cart" className="relative">
+            <Link to="/CoffeeNess/cart" className="relative">
               <Button variant="ghost" size="icon" className="relative">
                 <ShoppingCart className="h-5 w-5" />
                 {itemCount > 0 && (

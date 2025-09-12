@@ -165,13 +165,13 @@ const Home: React.FC = () => {
             
             <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Link to="/shop">
+                <Link to="/CoffeeNess/shop">
                   Shop Now <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
               
               <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-foreground">
-                <Link to="/about">
+                <Link to="/CoffeeNess/about">
                   Learn More
                 </Link>
               </Button>
@@ -276,7 +276,7 @@ const Home: React.FC = () => {
           
           <div className="text-center">
             <Button asChild size="lg" variant="outline" className="border-coffee-dark text-coffee-dark hover:bg-coffee-dark hover:text-white">
-              <Link to="/shop">
+              <Link to="/CoffeeNess/shop">
                 View All Products <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>

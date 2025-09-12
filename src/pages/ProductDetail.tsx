@@ -37,7 +37,7 @@ const ProductDetail: React.FC = () => {
       <div className="min-h-screen pt-24 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-coffee-dark mb-4">Product Not Found</h1>
-          <Link to="/shop">
+          <Link to="/CoffeeNess/shop">
             <Button variant="outline">Back to Shop</Button>
           </Link>
         </div>
@@ -54,7 +54,7 @@ const ProductDetail: React.FC = () => {
     <div ref={containerRef} className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
         {/* Back Button */}
-        <Link to="/shop" className="inline-flex items-center text-muted-foreground hover:text-accent mb-8 transition-colors">
+        <Link to="/CoffeeNess/shop" className="inline-flex items-center text-muted-foreground hover:text-accent mb-8 transition-colors">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Shop
         </Link>

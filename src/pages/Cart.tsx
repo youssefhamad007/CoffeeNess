@@ -38,7 +38,7 @@ const Cart: React.FC = () => {
           <ShoppingBag className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
           <h1 className="text-2xl font-bold text-coffee-dark mb-4">Your cart is empty</h1>
           <p className="text-muted-foreground mb-8">Add some delicious coffee to get started!</p>
-          <Link to="/shop">
+          <Link to="/CoffeeNess/shop">
             <Button size="lg" className="bg-coffee-dark hover:bg-coffee-medium text-warm-white">
               Start Shopping
             </Button>
@@ -53,7 +53,7 @@ const Cart: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="cart-header mb-8">
-          <Link to="/shop" className="inline-flex items-center text-muted-foreground hover:text-accent mb-4 transition-colors">
+          <Link to="/CoffeeNess/shop" className="inline-flex items-center text-muted-foreground hover:text-accent mb-4 transition-colors">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Continue Shopping
           </Link>
@@ -198,7 +198,7 @@ const Cart: React.FC = () => {
                   className="w-full border-coffee-dark text-coffee-dark hover:bg-coffee-dark hover:text-white"
                   asChild
                 >
-                  <Link to="/shop">
+                  <Link to="/CoffeeNess/shop">
                     Continue Shopping
                   </Link>
                 </Button>
