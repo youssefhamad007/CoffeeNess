@@ -54,10 +54,14 @@ const ProductDetail: React.FC = () => {
     <div ref={containerRef} className="min-h-screen pt-24 pb-12">
       <div className="container mx-auto px-4">
         {/* Back Button */}
-        <Link to="/CoffeeNess/shop" className="inline-flex items-center text-muted-foreground hover:text-accent mb-8 transition-colors">
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Shop
-        </Link>
+        <Link
+  to="/CoffeeNess/shop"
+  state={{ skipAnim: true }}
+  className="inline-flex items-center text-muted-foreground hover:text-accent mb-8 transition-colors"
+>
+  <ArrowLeft className="mr-2 h-4 w-4" />
+  Back to Shop
+</Link>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Product Image */}

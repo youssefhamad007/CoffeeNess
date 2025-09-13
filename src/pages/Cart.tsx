@@ -53,7 +53,10 @@ const Cart: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="cart-header mb-8">
-          <Link to="/CoffeeNess/shop" className="inline-flex items-center text-muted-foreground hover:text-accent mb-4 transition-colors">
+          <Link to="/CoffeeNess/shop" 
+          className="inline-flex items-center text-muted-foreground hover:text-accent mb-4 transition-colors"
+          state={{ skipAnim: true }}
+          >
             <ArrowLeft className="mr-2 h-4 w-4" />
             Continue Shopping
           </Link>
@@ -198,7 +201,7 @@ const Cart: React.FC = () => {
                   className="w-full border-coffee-dark text-coffee-dark hover:bg-coffee-dark hover:text-white"
                   asChild
                 >
-                  <Link to="/CoffeeNess/shop">
+                  <Link to="/CoffeeNess/shop" state={{ skipAnim: true }}>
                     Continue Shopping
                   </Link>
                 </Button>

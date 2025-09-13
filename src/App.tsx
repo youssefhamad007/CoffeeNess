@@ -25,31 +25,44 @@ const App = () => {
   const [showRoutes, setShowRoutes] = useState(true);
   const location = useLocation();
 
+  // ✅ Only these routes should get the full page transition
+  const animatedRoutes = [
+    "/CoffeeNess/",
+    "/CoffeeNess/shop",
+    "/CoffeeNess/about",
+    "/CoffeeNess/contact",
+  ];
+
   useEffect(() => {
-    // Skip animation on first load
     if (isFirstLoad) {
       setIsFirstLoad(false);
       return;
     }
 
-    // Hide routes immediately to prevent glitch
+    // Skip if flagged or not in animated list
+    const skip = (location.state as any)?.skipAnim;
+    const shouldAnimate = animatedRoutes.includes(location.pathname);
+
+    if (skip || !shouldAnimate) {
+      setPageOpacity(1);
+      setShowRoutes(true);
+      setIsAnimating(false);
+      return;
+    }
+
+    // Start transition
     setShowRoutes(false);
-    
-    // Start page exit animation (fade out)
     setPageOpacity(0);
-    
-    // Trigger stairs animation
     setIsAnimating(true);
 
     const timer = setTimeout(() => {
       setIsAnimating(false);
-      // Show new routes and fade in new page when animation ends
       setShowRoutes(true);
       setPageOpacity(1);
-    }, 3000); // Total animation duration (1.5s black + 1.5s white + cleanup + buffer)
+    }, 3000);
 
     return () => clearTimeout(timer);
-  }, [location.pathname, isFirstLoad]);
+  }, [location.pathname, location.state, isFirstLoad]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -59,26 +72,29 @@ const App = () => {
           <Sonner />
           <Navigation />
           <PageTransition>
-            <div 
-              style={{ 
+            <div
+              style={{
                 opacity: pageOpacity,
-                transition: 'opacity 0.7s ease-in-out'
+                transition: "opacity 0.7s ease-in-out",
               }}
             >
               {showRoutes && (
                 <Routes>
                   <Route path="/CoffeeNess/" element={<Home />} />
                   <Route path="/CoffeeNess/shop" element={<Shop />} />
-                  <Route path="/CoffeeNess/product/:id" element={<ProductDetail />} />
-                  <Route path="/CoffeeNess/cart" element={<Cart />} />
                   <Route path="/CoffeeNess/about" element={<About />} />
                   <Route path="/CoffeeNess/contact" element={<Contact />} />
+                  <Route
+                    path="/CoffeeNess/product/:id"
+                    element={<ProductDetail />}
+                  />
+                  <Route path="/CoffeeNess/cart" element={<Cart />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               )}
             </div>
           </PageTransition>
-          <StairsAnimation 
+          <StairsAnimation
             isAnimating={isAnimating}
             onComplete={() => setIsAnimating(false)}
             columnCount={6}
