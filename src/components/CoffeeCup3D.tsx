@@ -138,7 +138,7 @@ const CoffeeCup3D: React.FC = () => {
           }
 
           .floating-tooltip {
-            animation: float-sine 2s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite;
           }
 
           @keyframes rotation_35 {
@@ -151,18 +151,12 @@ const CoffeeCup3D: React.FC = () => {
             }
           }
 
-          @keyframes float-sine {
+          @keyframes float {
             0%, 100% {
               transform: translate(-50%, 0px);
             }
-            25% {
-              transform: translate(-50%, -4px);
-            }
             50% {
-              transform: translate(-50%, 0px);
-            }
-            75% {
-              transform: translate(-50%, 4px);
+              transform: translate(-50%, -8px);
             }
           }
         `

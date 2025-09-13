@@ -131,3 +131,55 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Stairs Animation Styles */
+@layer components {
+  .page-transition-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .stairs-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .black-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .stairs-column-black {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #000000;
+    transform: translateY(100%);
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .stairs-column-white {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: #3e291e;
+    transform: translateY(100%);
+    opacity: 1;
+    z-index: 3;
+  }
+
+}
